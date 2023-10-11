@@ -12,20 +12,25 @@
         dies wäre zum Beispiel die jährliche Zahnkontrolle.
         Scannen Sie das Dokument ab, um die erbrachte Leistung nachzuweisen.</p>
 </div>
-<div class="document-upload" *ngIf="isUser">
-    <label for="upload">Nachweise Hochladen</label>
-    <input id="upload" type="file" (change)="onFileSelected($event)" [disabled]="!isOverAge">
-    <button (click)="uploadFile()" [disabled]="!isOverAge">Upload</button>
-    <p *ngIf="!isOverAge">Sie müssen um ein Zahnbonus zu beantragen über 16 sein</p>
-</div>
 <div class="document-selection" *ngIf="isAdmin">
-    <ul>
-        <li *ngFor="let document of listOfDocuments">
-            <p>{{document.email}}</p>
-            <p>{{document.status}}</p>
-            <button (click)="openDocument(document.requestId)">Öffnen</button>
-            <button (click)="acceptDocument(document.requestId)">Genehmigen</button>
-            <button (click)="rejectDocument(document.requestId)">Ablehnen</button>
-        </li>
-    </ul>
+    <table>
+        <thead>
+        <tr>
+            <th>Dokument</th>
+            <th>Status</th>
+            <th>Öffnen</th>
+            <th>Genehmigen</th>
+            <th>Ablehnen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let document of listOfDocuments">
+            <td>{{document.path}}</td>
+            <td>{{document.status}}</td>
+            <td><button (click)="openDocument(document.requestId)">Öffnen</button></td>
+            <td><button (click)="acceptDocument(document.requestId)">Genehmigen</button></td>
+            <td><button (click)="rejectDocument(document.requestId)">Ablehnen</button></td>
+        </tr>
+        </tbody>
+    </table>
 </div>

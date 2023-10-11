@@ -185,34 +185,32 @@ nav a {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #aaa;
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
+    padding: 20px;
 }
 
-.document-selection ul {
-    list-style: none;
-    padding: 0;
+.document-selection table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.document-selection li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.document-selection th, .document-selection td {
     padding: 10px;
-    margin: 10px 0;
-    overflow: hidden;
+    text-align: left;
+    border: 1px solid #ccc;
 }
 
-.document-selection li p {
-    flex: 1;
-    margin: 0;
-    padding: 5px;
-    color: #333; /* Dark text color */
+.document-selection th {
+    background-color: #1e90ff;
+    color: #fff;
 }
 
-.document-selection li button {
+.document-selection tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row background color */
+}
+
+.document-selection button {
     background-color: #1e90ff;
     color: #fff;
     padding: 5px 10px;
@@ -222,7 +220,7 @@ nav a {
     transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.document-selection li button:hover {
+.document-selection button:hover {
     background-color: #147ABD; /* Darker blue on hover */
 }
 
