@@ -21,7 +21,7 @@
 <div class="document-selection" *ngIf="isAdmin">
     <ul>
         <li *ngFor="let document of listOfDocuments">
-            <p>{{document.path}}</p>
+            <p>{{document.email}}</p>
             <p>{{document.status}}</p>
             <button (click)="openDocument(document.requestId)">Öffnen</button>
             <button (click)="acceptDocument(document.requestId)">Genehmigen</button>
