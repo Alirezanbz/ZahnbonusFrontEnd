@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserService} from "../user/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,10 @@ import {UserService} from "../user/user.service";
 export class RegisterComponent implements OnInit{
   registerForm!: FormGroup;
 
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
+    if (localStorage.getItem("email") != null){
+      router.navigate(['/home']);
+    }
   }
 
   ngOnInit() {

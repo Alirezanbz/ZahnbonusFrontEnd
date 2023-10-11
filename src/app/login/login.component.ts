@@ -12,6 +12,9 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
   constructor(private router: Router, private userService: UserService) {
+    if (localStorage.getItem("email") != null){
+      router.navigate(['/home']);
+    }
   }
 
   ngOnInit() {

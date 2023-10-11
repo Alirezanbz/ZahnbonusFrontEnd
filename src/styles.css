@@ -89,7 +89,42 @@ body {
     margin-left: 10px;
 }
 
-/* Home Component - Document Upload Section */
+/* Navigation Bar */
+nav {
+    background-color: #1e90ff; /* Light blue background color for the navigation bar */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Introduction Section */
+.introduction {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #aaa;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.introduction h2 {
+    color: #1e90ff; /* Light blue heading color */
+}
+
+.introduction p {
+    color: #333; /* Dark text color */
+}
+
+/* Document Upload Section */
 .document-upload {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -129,7 +164,7 @@ body {
     margin-top: 10px;
 }
 
-/* Home Component - Document Selection Section */
+/* Document Selection Section */
 .document-selection {
     background-color: #fff;
     border: 1px solid #ccc;

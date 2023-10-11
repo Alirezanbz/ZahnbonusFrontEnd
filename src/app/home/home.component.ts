@@ -95,4 +95,8 @@ export class HomeComponent {
       });
     });
   }
+
+  loggout(){
+    this.userService.loggout();
+  }
 }

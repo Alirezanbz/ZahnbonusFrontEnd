@@ -47,6 +47,11 @@ export class UserService {
           });
     }
 
+    loggout(){
+      localStorage.removeItem("email");
+      localStorage.removeItem("role");
+    }
+
     getUserAge() {
         const url = `${this.apiUrl}/age?email=${this.email}`;
         return this.http.get(url);
