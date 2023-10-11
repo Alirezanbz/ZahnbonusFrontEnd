@@ -1,6 +1,6 @@
 <nav>
-    <a>Home</a>
-    <a>Beantrage</a>
+    <a *ngIf="isUser">Home</a>
+    <a *ngIf="isUser">Anträge</a>
     <a>Konto</a>
     <a (click)="loggout()">Ausloggen</a>
 </nav>
