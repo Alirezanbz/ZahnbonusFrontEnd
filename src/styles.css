@@ -1,4 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Register Component */
+.register-form {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #aaa; /* Drop shadow effect */
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.register-form h2 {
+    color: #1e90ff; /* Light blue heading color */
+}
+
+.register-form label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.register-form button {
+    background-color: #1e90ff; /* Light blue button background color */
+    color: #fff; /* White button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Login Component */
+.login-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #aaa;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-form h2 {
+    color: #1e90ff;
+}
+
+.login-form label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-form button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.login-form a {
+    text-decoration: none;
+    color: #1e90ff;
+    margin-left: 10px;
+}
+
+/* Home Component */
+/* No specific styles provided for the Home component. */
+
+/* App Component */
+/* No specific styles provided for the App component. */
