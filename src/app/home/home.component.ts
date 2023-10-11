@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from "@angular/router";
 import { UserService } from "../user/user.service";
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +12,12 @@ export class HomeComponent {
   isOverAge = false;
   selectedFile: File | null = null;
   private url = "http://localhost:8080/upload"
-  private username = localStorage.getItem("User");
-  private headers = new HttpHeaders({'username': this.username!});
+  private email = localStorage.getItem("email");
 
-  constructor(private http: HttpClient, private router: Router, private userService: UserService, private snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
+    if (!userService.isLoggenIn()){
+      router.navigate(['/login']);
+    }
     this.checkIsOverAge();
   }
 
@@ -36,23 +36,13 @@ export class HomeComponent {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
+      formData.append('email', this.email!)
 
-      this.http.post(this.url, formData, { headers: this.headers }).subscribe(
+      this.http.post(this.url, formData).subscribe(
           response => {
-            // Show a success message
-            this.showSnackBar('File upload successful', 'success');
             console.log('File upload success:', response);
           }
       );
     }
-  }
-
-
-  showSnackBar(message: string, panelClass: string) {
-    const config = new MatSnackBarConfig();
-    config.panelClass = [panelClass];
-    config.duration = 3000; // Duration in milliseconds (adjust as needed)
-
-    this.snackBar.open(message, 'Close', config);
   }
 }
