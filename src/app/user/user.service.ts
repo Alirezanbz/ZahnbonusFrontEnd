@@ -48,9 +48,8 @@ export class UserService {
     }
 
     getUserAge() {
-      const url = this.apiUrl + "/age";
-      // @ts-ignore
-        return this.http.get(url, this.email);
+        const url = `${this.apiUrl}/age?email=${this.email}`;
+        return this.http.get(url);
     }
 
     isLoggenIn() {
