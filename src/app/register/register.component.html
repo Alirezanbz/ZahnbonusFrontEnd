@@ -1,0 +1,14 @@
+<div class="register-form">
+  <h2>Register Account</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="email">E-Mail:</label>
+    <input type="text" id="email" formControlName="email">
+    <label for="password">Passwort:</label>
+    <input type="password" id="password" formControlName="password">
+    <label for="iban">IBAN:</label>
+    <input type="text" id="iban" formControlName="iban">
+    <label for="dob">Geburtsdatum</label>
+    <input type="date" id="dob" formControlName="dob">
+    <button>Register</button>
+  </form>
+</div>
