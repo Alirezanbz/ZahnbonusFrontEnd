@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,10 @@ export class UserService {
         this.http.post<any>(url, credentials).subscribe(response => {
             console.log(response);
 
-            if (response && response.email) {  // Assuming 'email' is the property returned in the response.
+            if (response && response.email && response.role) {  // Assuming 'email' is the property returned in the response.
                 // Save email to local storage
                 localStorage.setItem("email", response.email);
+                localStorage.setItem("role", response.role);
                 this.email = response.email;
                 this.router.navigate(['/home']);
             }
@@ -34,9 +35,10 @@ export class UserService {
           response => {
               console.log(response);
 
-              if (response && response.email) {  // Assuming 'email' is the property returned in the response.
+              if (response && response.email && response.role) {  // Assuming 'email' is the property returned in the response.
                   // Save email to local storage
                   localStorage.setItem("email", response.email);
+                  localStorage.setItem("role", response.role);
                   this.email = response.email;
                   this.router.navigate(['/home']);
               }
@@ -47,10 +49,20 @@ export class UserService {
 
     getUserAge() {
       const url = this.apiUrl + "/age";
-      return this.http.post(url, this.email);
+      return this.http.get(url, this.email);
     }
 
     isLoggenIn() {
         return this.email != null;
+    }
+
+    getDocuments() {
+        const url = this.apiUrl + "/pending";
+        return this.http.get<any>(url);
+    }
+
+    downloadDocument(docId: number) {
+        const url = `${this.apiUrl}/download?requestId=${docId}`;
+        return this.http.get(url, { responseType: 'blob' });
     }
 }

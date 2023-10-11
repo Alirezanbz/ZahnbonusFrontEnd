@@ -11,6 +11,9 @@ import { UserService } from "../user/user.service";
 export class HomeComponent {
   isOverAge = false;
   selectedFile: File | null = null;
+  listOfDocuments: any;
+  isUser: boolean;
+  isAdmin: boolean;
   private url = "http://localhost:8080/upload"
   private email = localStorage.getItem("email");
 
@@ -19,6 +22,11 @@ export class HomeComponent {
       router.navigate(['/login']);
     }
     this.checkIsOverAge();
+    this.isUser = this.getRoll() === "kunde";
+    this.isAdmin = this.getRoll() === "mitarbeiter";
+    if (this.isAdmin){
+      this.getDocuments();
+    }
   }
 
   private checkIsOverAge() {
@@ -44,5 +52,26 @@ export class HomeComponent {
           }
       );
     }
+  }
+
+  private getRoll() {
+    return localStorage.getItem("role")
+  }
+
+  public openDocument(docId: number){
+    this.userService.downloadDocument(docId).subscribe(response => {
+      const blob = new Blob([response], { type: 'application/pdf' }); // Adjust the 'type' as needed
+
+      const objectURL = URL.createObjectURL(blob);
+      window.open(objectURL, '_blank');
+    });
+  }
+
+  private getDocuments() {
+    this.userService.getDocuments().subscribe(
+        response => {
+          this.listOfDocuments = response;
+        }
+    )
   }
 }
