@@ -61,9 +61,13 @@ export class HomeComponent {
   public openDocument(docId: number){
     this.userService.downloadDocument(docId).subscribe(response => {
       const blob = new Blob([response], { type: 'application/pdf' }); // Adjust the 'type' as needed
-
       const objectURL = URL.createObjectURL(blob);
-      window.open(objectURL, '_blank');
+
+      const iframe = document.createElement('iframe');
+      iframe.style.width = '100%';
+      iframe.style.height = '600px'; // Adjust the height as needed
+      iframe.src = objectURL;
+      document.body.appendChild(iframe);
     });
   }
 
