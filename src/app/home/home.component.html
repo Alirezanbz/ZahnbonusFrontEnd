@@ -31,7 +31,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let document of listOfDocuments">
-            <td>{{document.path}}</td>
+            <td>{{document.email}}</td>
             <td>{{document.status}}</td>
             <td><button (click)="openDocument(document.requestId)">Öffnen</button></td>
             <td><button (click)="acceptDocument(document.requestId)">Genehmigen</button></td>
