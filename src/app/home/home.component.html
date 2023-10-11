@@ -14,7 +14,7 @@
 </div>
 <div class="document-upload" *ngIf="isUser">
     <label for="upload">Nachweise Hochladen</label>
-    <input id="upload" type="file" (change)="onFileSelected($event)">
+    <input id="upload" type="file" (change)="onFileSelected($event)" [disabled]="!isOverAge">
     <button (click)="uploadFile()" [disabled]="!isOverAge">Upload</button>
     <p *ngIf="!isOverAge">Sie müssen um ein Zahnbonus zu beantragen über 16 sein</p>
 </div>
