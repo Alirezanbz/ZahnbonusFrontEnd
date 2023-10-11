@@ -50,6 +50,7 @@ export class UserService {
     loggout(){
       localStorage.removeItem("email");
       localStorage.removeItem("role");
+      this.router.navigate(['/login']);
     }
 
     getUserAge() {
