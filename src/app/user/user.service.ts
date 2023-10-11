@@ -65,4 +65,14 @@ export class UserService {
         const url = `${this.apiUrl}/download?requestId=${docId}`;
         return this.http.get(url, { responseType: 'blob' });
     }
+
+    acceptDocument(requestId: string) {
+        const url = this.apiUrl + "/accept";
+        return this.http.post(url, requestId);
+    }
+
+    rejectDocument(requestId: string) {
+        const url = this.apiUrl + "/deny";
+        return this.http.post(url, requestId);
+    }
 }

@@ -10,6 +10,8 @@
             <p>{{document.path}}</p>
             <p>{{document.status}}</p>
             <button (click)="openDocument(document.requestId)">Öffnen</button>
+            <button (click)="acceptDocument(document.requestId)">Genehmigen</button>
+            <button (click)="rejectDocument(document.requestId)">Ablehnen</button>
         </li>
     </ul>
 </div>

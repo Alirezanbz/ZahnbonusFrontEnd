@@ -78,4 +78,12 @@ export class HomeComponent {
         }
     )
   }
+
+  acceptDocument(requestId: string) {
+    this.userService.acceptDocument(requestId).subscribe();
+  }
+
+  rejectDocument(requestId: string) {
+    this.userService.rejectDocument(requestId).subscribe();
+  }
 }
