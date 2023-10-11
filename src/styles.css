@@ -90,7 +90,81 @@ body {
 }
 
 /* Home Component */
-/* No specific styles provided for the Home component. */
 
-/* App Component */
-/* No specific styles provided for the App component. */
+/* Document Upload Section */
+.document-upload {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #aaa;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.document-upload label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.document-upload input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.document-upload button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.document-upload p {
+    color: #f44336; /* Red text color */
+    margin-top: 10px;
+}
+
+/* Document Selection Section */
+.document-selection {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #aaa;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.document-selection ul {
+    list-style: none;
+    padding: 0;
+}
+
+.document-selection li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.document-selection li button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Additional Styles */
+/* Add any other global or component-specific styles here */
