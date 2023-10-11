@@ -12,6 +12,12 @@
         dies wäre zum Beispiel die jährliche Zahnkontrolle.
         Scannen Sie das Dokument ab, um die erbrachte Leistung nachzuweisen.</p>
 </div>
+<div class="document-upload" *ngIf="isUser">
+    <label for="upload">Nachweise Hochladen</label>
+    <input id="upload" type="file" (change)="onFileSelected($event)" [disabled]="!isOverAge">
+    <button (click)="uploadFile()" [disabled]="!isOverAge">Upload</button>
+    <p *ngIf="!isOverAge">Sie müssen um ein Zahnbonus zu beantragen über 16 sein</p>
+</div>
 <div class="document-selection" *ngIf="isAdmin">
     <table>
         <thead>
