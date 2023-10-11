@@ -89,9 +89,7 @@ body {
     margin-left: 10px;
 }
 
-/* Home Component */
-
-/* Document Upload Section */
+/* Home Component - Document Upload Section */
 .document-upload {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -131,7 +129,7 @@ body {
     margin-top: 10px;
 }
 
-/* Document Selection Section */
+/* Home Component - Document Selection Section */
 .document-selection {
     background-color: #fff;
     border: 1px solid #ccc;
@@ -164,6 +162,7 @@ body {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-right: 5px;
 }
 
 /* Additional Styles */

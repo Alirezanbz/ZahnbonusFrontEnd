@@ -10,19 +10,22 @@ import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import {UserService} from "./user/user.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StatusComponent } from './status/status.component';
 
 const appRoute: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'status', component: StatusComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

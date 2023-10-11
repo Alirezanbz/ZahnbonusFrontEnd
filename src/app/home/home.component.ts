@@ -49,6 +49,7 @@ export class HomeComponent {
       this.http.post(this.url, formData).subscribe(
           response => {
             console.log('File upload success:', response);
+            this.router.navigate(['/status']);
           }
       );
     }
@@ -80,10 +81,18 @@ export class HomeComponent {
   }
 
   acceptDocument(requestId: string) {
-    this.userService.acceptDocument(requestId).subscribe();
+    this.userService.acceptDocument(requestId).subscribe(() => {
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+    });
   }
 
   rejectDocument(requestId: string) {
-    this.userService.rejectDocument(requestId).subscribe();
+    this.userService.rejectDocument(requestId).subscribe(() => {
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+    });
   }
 }

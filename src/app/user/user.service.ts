@@ -8,7 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UserService {
   private apiUrl = "http://localhost:8080";
-  private email: any;
+  private email = localStorage.getItem("email");
   constructor(private http:HttpClient, private router: Router) { }
 
     loginUser(credentials: any) {
@@ -49,7 +49,8 @@ export class UserService {
 
     getUserAge() {
       const url = this.apiUrl + "/age";
-      return this.http.get(url, this.email);
+      // @ts-ignore
+        return this.http.get(url, this.email);
     }
 
     isLoggenIn() {
@@ -74,5 +75,9 @@ export class UserService {
     rejectDocument(requestId: string) {
         const url = this.apiUrl + "/deny";
         return this.http.post(url, requestId);
+    }
+
+    getRequest() {
+        // backlog
     }
 }
