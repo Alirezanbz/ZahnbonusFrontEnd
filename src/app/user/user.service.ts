@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import { of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -85,4 +87,15 @@ export class UserService {
     getRequest() {
         // backlog
     }
+  getRequestStatusByEmail() {
+    const email = localStorage.getItem("email");
+    if (!email) {
+      console.error("Email not found in local storage!");
+      return of("Email not found");
+    }
+    const url = `${this.apiUrl}/statusByEmail?email=${email}`;
+    return this.http.get<string>(url, { responseType: 'text' as 'json' });
+
+  }
+
 }

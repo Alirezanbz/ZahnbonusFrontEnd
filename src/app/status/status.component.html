@@ -1,1 +1,24 @@
-<p>Kommt noch...</p>
+<!-- Status Navigation -->
+<nav>
+  <a *ngIf="isUser">Home</a>
+  <a *ngIf="isUser">Anträge</a>
+  <a>Konto</a>
+  <a (click)="loggout()">Ausloggen</a>
+</nav>
+
+<!-- Status Introduction -->
+<div class="introduction" *ngIf="isUser">
+  <h2>Ihr Zahnbonus Status</h2>
+  <p>Ihr aktueller Status: <strong>{{ statusMessage }}</strong></p>
+
+  <!-- Specific message based on status -->
+  <div *ngIf="statusMessage === 'In Bearbeitung'">
+    <p>Ihr Antrag wird bearbeitet. Bitte warten Sie auf weitere Informationen.</p>
+  </div>
+  <div *ngIf="statusMessage === 'Abgelehnt'">
+    <p>Leider wurde Ihr Antrag abgelehnt. Sie können sich mit unserem Kundenservice in Verbindung setzen, um weitere Informationen zu erhalten.</p>
+  </div>
+  <div *ngIf="statusMessage === 'Ausgezahlt'">
+    <p>Herzlichen Glückwunsch! Ihr Antrag wurde genehmigt und der Zahnbonus wurde ausgezahlt.</p>
+  </div>
+</div>

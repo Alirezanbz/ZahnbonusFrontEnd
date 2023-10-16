@@ -1,42 +1,44 @@
 <nav>
-    <a *ngIf="isUser">Home</a>
-    <a *ngIf="isUser">Anträge</a>
-    <a>Konto</a>
-    <a (click)="loggout()">Ausloggen</a>
+  <a *ngIf="isUser">Home</a>
+  <a *ngIf="isUser">Anträge</a>
+  <a>Konto</a>
+  <a (click)="loggout()">Ausloggen</a>
 </nav>
 <div class="introduction" *ngIf="isUser">
-    <h2>Zahnbonus Beantragen</h2>
-    <p>Der Zahnbonus ist ein zusätzliches Programm zu unserem normalen Bonusprogramm.
-        Im Zahnbonusprogramm können Sie als Kunde weitere Prämien in Form von Geldleistungen sammeln.
-        Um diese Prämien zu erhalten, müssen Sie Leistungen in Bezug auf den Zahnarzt nachweisen,
-        dies wäre zum Beispiel die jährliche Zahnkontrolle.
-        Scannen Sie das Dokument ab, um die erbrachte Leistung nachzuweisen.</p>
+  <h2>Zahnbonus Beantragen</h2>
+  <p>Der Zahnbonus ist ein zusätzliches Programm zu unserem normalen Bonusprogramm.
+    Im Zahnbonusprogramm können Sie als Kunde weitere Prämien in Form von Geldleistungen sammeln.
+    Um diese Prämien zu erhalten, müssen Sie Leistungen in Bezug auf den Zahnarzt nachweisen,
+    dies wäre zum Beispiel die jährliche Zahnkontrolle.
+    Scannen Sie das Dokument ab, um die erbrachte Leistung nachzuweisen.</p>
 </div>
 <div class="document-upload" *ngIf="isUser">
-    <label for="upload">Nachweise Hochladen</label>
-    <input id="upload" type="file" (change)="onFileSelected($event)" [disabled]="!isOverAge">
-    <button (click)="uploadFile()" [disabled]="!isOverAge">Upload</button>
-    <p *ngIf="!isOverAge">Sie müssen um ein Zahnbonus zu beantragen über 16 sein</p>
+  <label for="upload">Nachweise Hochladen</label>
+  <input id="upload" type="file" (change)="onFileSelected($event)" [disabled]="!isOverAge">
+  <button *ngIf="!hasUploaded" [disabled]="!isOverAge" (click)="uploadFile()">Upload</button>
+
+  <p *ngIf="!isOverAge">Sie müssen um ein Zahnbonus zu beantragen über 16 sein</p>
 </div>
 <div class="document-selection" *ngIf="isAdmin">
-    <table>
-        <thead>
-        <tr>
-            <th>Dokument</th>
-            <th>Status</th>
-            <th>Öffnen</th>
-            <th>Genehmigen</th>
-            <th>Ablehnen</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let document of listOfDocuments">
-            <td>{{document.path}}</td>
-            <td>{{document.status}}</td>
-            <td><button (click)="openDocument(document.requestId)">Öffnen</button></td>
-            <td><button (click)="acceptDocument(document.requestId)">Genehmigen</button></td>
-            <td><button (click)="rejectDocument(document.requestId)">Ablehnen</button></td>
-        </tr>
-        </tbody>
-    </table>
+  <table>
+    <thead>
+    <tr>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Öffnen</th>
+      <th>Genehmigen</th>
+      <th>Ablehnen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let document of listOfDocuments">
+      <td>{{document.user.email}}</td>
+      <td>{{document.status}}</td>
+      <td><button (click)="openDocument(document.requestId)">Öffnen</button></td>
+      <td><button class="button-green" (click)="acceptDocument(document.requestId)">Genehmigen</button></td>
+      <td><button class="button-red" (click)="rejectDocument(document.requestId)">Ablehnen</button></td>
+
+    </tr>
+    </tbody>
+  </table>
 </div>

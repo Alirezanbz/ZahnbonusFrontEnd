@@ -1,0 +1,30 @@
+.document-selection {
+  width: 100%;  /* or a fixed width like 1200px, depending on your design */
+  max-width: 800px; /* or another appropriate value */
+  margin: 0 auto; /* centers the container if it has a max-width */
+  overflow-x: auto; /* to ensure horizontal scrolling if the table is wider than container */
+}
+.button-green {
+  background-color: green;
+  color: white; /* White text on green background */
+  border: none; /* Remove any border */
+  padding: 5px 10px; /* Add some padding */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.button-red {
+  background-color: red;
+  color: white; /* White text on red background */
+  border: none; /* Remove any border */
+  padding: 5px 10px; /* Add some padding */
+  border-radius: 4px; /* Rounded corners */
+}
+.button-green:hover {
+  background-color: darkgreen; /* A darker shade of green */
+  color: white;
+}
+
+.button-red:hover {
+  background-color: darkred; /* A darker shade of red */
+  color: white;
+}

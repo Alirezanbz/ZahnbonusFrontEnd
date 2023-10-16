@@ -99,4 +99,21 @@ export class HomeComponent {
   loggout(){
     this.userService.loggout();
   }
+  hasUploaded: boolean = false;
+  ngOnInit(): void {
+    if (this.isUser) {
+      this.userService.getRequestStatusByEmail().subscribe(
+        status => {
+          if (status !== "No request found for the user") {
+            // If user has uploaded a document before, navigate to status page.
+            this.router.navigate(['/status']);
+          }
+        },
+        error => {
+          console.error("Failed to get status by email:", error);
+        }
+      );
+    }
+  }
+
 }
